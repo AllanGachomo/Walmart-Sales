@@ -220,62 +220,6 @@ ORDER BY
 
 
 
--- --------------------------- Sales Questions ---------------------------
-
--- Number of sales made in each time of the day per weekday
-
-SELECT
-    Time_of_day,
-    COUNT(Invoice_ID) AS Total_sales
-FROM
-    WalmartSalesData
-WHERE 
-    Day_name = 'Tuesday'
-GROUP BY
-    Time_of_day
-ORDER BY
-    Total_sales DESC
-
--- Which of the customer types brings the most revenue?
-
-SELECT
-    Customer_type,
-    SUM(Total) AS Total_revenue
-FROM
-    WalmartSalesData
-GROUP BY
-    Customer_type
-ORDER BY
-    Total_revenue DESC
-
--- Which city has the largest tax percent/ VAT (Value Added Tax)?
-
-SELECT
-    City,
-    AVG(VAT) AS VAT
-FROM
-    WalmartSalesData
-GROUP BY
-    City
-ORDER BY 
-    VAT DESC
-
--- Which customer type pays the most in VAT?
-
-SELECT
-    Customer_type,
-    AVG(VAT) AS VAT
-FROM
-    WalmartSalesData
-GROUP BY
-    Customer_type
-ORDER BY 
-    VAT DESC
-
-
-
-
-
 -- --------------------------- Customer Questions ---------------------------
 
 -- How many unique customer types does the data have and which one has the most customers?
@@ -327,6 +271,8 @@ GROUP BY
     Gender
 ORDER BY
     Customer_count DESC
+-- Gender per branch is more or less the same  
+-- I don't think it has an effect of the sales per branch and other factors.
 
 -- Which time of the day do customers give most ratings?
 
@@ -339,6 +285,8 @@ GROUP BY
     Time_of_day
 ORDER BY
     No_of_ratings DESC
+-- Looks like time of the day affectS the no of ratings
+-- Most ratings are given during the evening when the stores are filled as proven by a query on line 225
 
 -- Which time of the day do customers give most ratings per branch?
 
@@ -365,6 +313,9 @@ GROUP BY
     Day_name
 ORDER BY
     Avg_rating DESC
+-- Mon, Fri and Sunday are the top best days for good ratings
+-- why is that the case, how many sales are made on these days?
+
 
 -- Which day of the week has the best average ratings per branch?
 
@@ -379,3 +330,66 @@ GROUP BY
     Day_name
 ORDER BY
     Avg_rating DESC
+
+
+
+
+
+
+-- --------------------------- Sales Questions ---------------------------
+
+-- Number of sales made in each time of the day per weekday
+
+SELECT
+    Time_of_day,
+    COUNT(Invoice_ID) AS Total_sales
+FROM
+    WalmartSalesData
+WHERE 
+    Day_name = 'Monday'
+GROUP BY
+    Time_of_day
+ORDER BY
+    Total_sales DESC
+-- Evenings experience most sales 
+-- The stores are filled during the evening hours
+
+-- Which of the customer types brings the most revenue?
+
+SELECT
+    Customer_type,
+    SUM(Total) AS Total_revenue
+FROM
+    WalmartSalesData
+GROUP BY
+    Customer_type
+ORDER BY
+    Total_revenue DESC
+
+-- Which city has the largest tax percent/ VAT (Value Added Tax)?
+
+SELECT
+    City,
+    AVG(VAT) AS VAT
+FROM
+    WalmartSalesData
+GROUP BY
+    City
+ORDER BY 
+    VAT DESC
+
+-- Which customer type pays the most in VAT?
+
+SELECT
+    Customer_type,
+    AVG(VAT) AS VAT
+FROM
+    WalmartSalesData
+GROUP BY
+    Customer_type
+ORDER BY 
+    VAT DESC
+
+
+
+
