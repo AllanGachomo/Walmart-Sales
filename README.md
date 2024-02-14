@@ -97,3 +97,5 @@ HAVING SUM(Quantity) > (SELECT
                         FROM 
                             WalmartSalesData)
 ```
+
+This project was completed with the guidance of Code With Prince's Youtube videos.
