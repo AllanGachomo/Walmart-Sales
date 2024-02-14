@@ -177,21 +177,6 @@ GROUP BY
 ORDER BY
     AVG_VAT DESC
 
--- Fetch each product line and add a column to those product line showing "Good", "Bad". Good if its greater than average sales
-
-SELECT
-    (SUM(Total)/COUNT(DISTINCT Product_line)) 
-FROM
-    WalmartSalesData
-
-SELECT 
-    Product_line       
-FROM 
-    WalmartSalesData 
-GROUP BY
-   Product_line
- 
-
 -- Which branch sold more products than average product sold?
 
 SELECT
