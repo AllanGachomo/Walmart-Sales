@@ -61,7 +61,7 @@ Perform EDA to address project objectives and questions.
 
 ## Business Questions To Answer:
 
-Below are a few examples of the questions answered in the query wiht their respective code. The rest can be found in the in the SQL file in the repository.
+Below are a few examples of the questions answered in the query with their respective code. The rest can be found in the in the SQL file in the repository.
 
 **Generic**
 - How many unique cities does the data have?
