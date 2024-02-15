@@ -55,7 +55,7 @@ The dataset, obtained from the Kaggle Walmart Sales Forecasting Competition, inc
 - Introduce new columns like "time_of_day" to categorize sales into morning, afternoon, and evening.
 - Introduce "day_name" to extract the day of the week for understanding branch activity.
 - Introduce "month_name" to analyze monthly sales and profit trends.
-- 
+
 **3. Exploratory Data Analysis:**
 Perform EDA to address project objectives and questions.
 
